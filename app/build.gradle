@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.ydmmocoo.androidinterview"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        packagingOptions {
+            exclude 'META-INF/rxjava.properties'
+        }
+    }
+    useLibrary 'org.apache.http.legacy'
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    //butterknife  https://github.com/JakeWharton/butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //QMUI_Android  https://github.com/QMUI/QMUI_Android
+    api('com.qmuiteam:qmui:1.1.2') {
+        exclude group: 'com.android.support'
+    }
+    //PictureSelector  https://github.com/LuckSiege/PictureSelector
+    api('com.github.LuckSiege.PictureSelector:picture_library:v2.2.3') {
+        exclude group: 'com.android.support'
+    }
+    //KLog  https://github.com/ZhaoKaiQiang/KLog
+    implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
+    //网络请求库 https://github.com/xiaoyaoyou1212/XSnow 冲突，先隐藏后面处理
+    //implementation 'com.vise.xiaoyaoyou:xsnow:2.1.8'
+    //Glide  https://github.com/bumptech/glide
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    //Glide加载圆形、圆角等图片 https://github.com/wasabeef/glide-transformations
+    implementation 'jp.wasabeef:glide-transformations:3.3.0'
+    //BaseRecyclerViewAdapterHelper  https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+    api('com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.38') {
+        exclude group: 'com.android.support'
+    }
+    //(下拉刷新，上拉加载更多)SmartRefreshLayout  https://github.com/scwang90/SmartRefreshLayout
+    api('com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1') {
+        exclude group: 'com.android.support'
+    }
+    api('com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1') {
+        exclude group: 'com.android.support'
+    }
+    //bmob后端云 文档地址：http://doc.bmob.cn/data/android/index.html#androidmanifestxml
+    implementation 'cn.bmob.android:bmob-sdk:3.5.5'
+}
