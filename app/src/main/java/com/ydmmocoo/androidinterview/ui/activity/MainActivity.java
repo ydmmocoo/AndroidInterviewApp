@@ -44,7 +44,7 @@ public class MainActivity extends BaseActivity {
         mFragments.add(new AboutFragment());
         //初始化Tab
         int normalColor = QMUIResHelper.getAttrColor(mContext, R.attr.qmui_config_color_gray_6);
-        int selectColor = QMUIResHelper.getAttrColor(mContext, R.attr.qmui_config_color_blue);
+        int selectColor = ContextCompat.getColor(mContext,R.color.app_color_blue);
         mTabs.setDefaultNormalColor(normalColor);
         mTabs.setDefaultSelectedColor(selectColor);
 

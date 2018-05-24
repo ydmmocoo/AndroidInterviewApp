@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".ui.activity.SubjectDetailActivity">
 
     <com.qmuiteam.qmui.widget.QMUITopBar
         android:id="@+id/tbl"
@@ -15,14 +16,12 @@
         app:qmui_topbar_title_color="@color/color_white"
         app:qmui_topbar_title_text_size="16sp"/>
 
-    <GridView
-        android:id="@+id/gv_classification"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:horizontalSpacing="10dp"
-        android:verticalSpacing="10dp"
-        android:numColumns="2">
+        android:layout_marginTop="?attr/qmui_topbar_height">
 
-    </GridView>
+    </android.support.v7.widget.RecyclerView>
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
