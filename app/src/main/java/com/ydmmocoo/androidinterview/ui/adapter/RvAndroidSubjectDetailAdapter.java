@@ -10,18 +10,19 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 import com.socks.library.KLog;
 import com.ydmmocoo.androidinterview.R;
+import com.ydmmocoo.androidinterview.model.AndroidSubject;
 import com.ydmmocoo.androidinterview.model.JavaSubject;
 
 import java.util.List;
 
-public class RvSubjectDetailAdapter extends BaseQuickAdapter<JavaSubject, BaseViewHolder> {
+public class RvAndroidSubjectDetailAdapter extends BaseQuickAdapter<AndroidSubject, BaseViewHolder> {
 
-    public RvSubjectDetailAdapter(int layoutResId, @Nullable List<JavaSubject> data) {
+    public RvAndroidSubjectDetailAdapter(int layoutResId, @Nullable List<AndroidSubject> data) {
         super(layoutResId, data);
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, JavaSubject item) {
+    protected void convert(BaseViewHolder helper, AndroidSubject item) {
         helper.setText(R.id.tv_title, (helper.getLayoutPosition()+1) + "." + item.getQuestion());
 
         final QMUITipDialog tipDialog = new QMUITipDialog.Builder(mContext)
